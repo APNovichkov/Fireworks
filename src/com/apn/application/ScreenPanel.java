@@ -12,7 +12,11 @@ public class ScreenPanel extends JPanel{
 
 	private static final long serialVersionUID = 1L;
 
-	private final double G_ACCELERATION = 9.8;
+	private final int G_ACCELERATION = 10;
+	private final int MILLISECONDS_IN_SECOND = 1000;
+	
+	private int speed;
+	private int delay;
 	
 	private Cannon cannon;
 	private Fireball fireball;
@@ -22,10 +26,13 @@ public class ScreenPanel extends JPanel{
 	private int height;
 	
 	
-	public ScreenPanel(int width, int height, Cannon cannon, Fireball fireball, Fireworks fireworks) {
+	
+	public ScreenPanel(int width, int height, Cannon cannon, Fireball fireball, Fireworks fireworks, int speed, int delay) {
 		this.cannon = cannon;
 		this.fireball = fireball;
 		this.fireworks = fireworks;
+		this.speed = speed;
+		this.delay = delay;
 	}
 	
 	
@@ -34,17 +41,19 @@ public class ScreenPanel extends JPanel{
 	public void paint(Graphics g) {
 		super.paint(g);
 	
+		//fireball.drawMe(g, width/2, getYWithGravity(height), 20, 20);
 		
+		System.out.println(width/2);
 		
-		
+		g.fillOval((int)width/2, 250, 20, 20);
 		
 	}
 	
-	public int getXFromAngle(int x) {
-		return 0;
+	private int getXFromAngle(int x) {
+		return (int) (x + (delay/MILLISECONDS_IN_SECOND*speed));
 	}
 	
-	public int getYWithGravity(int y) {
-		return 0;
+	private int getYWithGravity(int y) {
+		return (int) (y - (delay/MILLISECONDS_IN_SECOND)*speed +(delay/MILLISECONDS_IN_SECOND*G_ACCELERATION));
 	}
 }

@@ -1,5 +1,7 @@
 package com.apn.elements;
 
+import java.awt.Graphics;
+
 public class Fireball {
 	
 	int width;
@@ -12,8 +14,8 @@ public class Fireball {
 		this.width = width;
 		this.height = height;
 		
-		currentX = 0;
-		currentY = 0;
+		currentX = width/2;
+		currentY = height;
 	}
 
 	public int getX() {
@@ -22,5 +24,9 @@ public class Fireball {
 	
 	public int getY() {
 		return currentY;
+	}
+	
+	public void drawMe(Graphics g, int x, int y, int width, int length) {
+		g.fillOval(x, y, width, length);
 	}
 }

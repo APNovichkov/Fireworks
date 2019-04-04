@@ -1,5 +1,7 @@
 package com.apn.elements;
 
+import java.awt.Graphics;
+
 public class Fireworks {
 
 	int width;
@@ -22,5 +24,9 @@ public class Fireworks {
 	
 	public int getY() {
 		return currentY;
+	}
+	
+	public void drawMe(Graphics g, int x, int y, int width, int length) {
+		g.fillOval(x, y, width, length);
 	}
 }

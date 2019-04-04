@@ -1,5 +1,7 @@
 package com.apn.elements;
 
+import java.awt.Graphics;
+
 public class Cannon {
 
 	private int width;
@@ -24,7 +26,9 @@ public class Cannon {
 		return currentY;
 	}
 	
-	
+	public void drawMe(Graphics g, int x, int y, int width, int length) {
+		g.fillRect(x, y, width, length);
+	}
 	
 	
 }
