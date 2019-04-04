@@ -8,7 +8,8 @@ import com.apn.elements.Fireworks;
 
 public class RunApplication {
 
-	final static int SPEED=100;
+	final static int DELAY=10;
+	final static int SPEED=100; //in pixels per second
 	final static int WIDTH=500;
 	final static int HEIGHT=500;
 	
@@ -16,7 +17,11 @@ public class RunApplication {
 	public static void main(String[] args) throws InterruptedException {
 		
 		
-		ScreenPanel sPanel = new ScreenPanel(WIDTH, HEIGHT, new Cannon(WIDTH, HEIGHT), new Fireball(WIDTH, HEIGHT), new Fireworks(WIDTH, HEIGHT));
+		ScreenPanel sPanel = new ScreenPanel(WIDTH, HEIGHT, 
+				new Cannon(WIDTH, HEIGHT), 
+				new Fireball(WIDTH, HEIGHT), 
+				new Fireworks(WIDTH, HEIGHT), 
+				SPEED, DELAY);
 		MainFrame mFrame = new MainFrame(WIDTH, HEIGHT, sPanel);
 		
 		
@@ -30,7 +35,7 @@ public class RunApplication {
 
 		while(true) {
 			mFrame.repaint();
-			Thread.sleep(SPEED);
+			Thread.sleep(DELAY);
 		}
 		
 	}
