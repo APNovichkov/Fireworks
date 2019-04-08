@@ -13,21 +13,16 @@ public class RunApplication {
 	final static int WIDTH=500;
 	final static int HEIGHT=500;
 	
+	final static int CANNON_SIZE = 20;
+	final static int FIREBALL_SIZE = 15;
+	final static int FIREWORKS_SIZE = 10;
+	
 	
 	public static void main(String[] args) throws InterruptedException {
 		
+		MainFrame mFrame = new MainFrame(WIDTH, HEIGHT, SPEED, DELAY, CANNON_SIZE, FIREBALL_SIZE, FIREWORKS_SIZE);
 		
-		ScreenPanel sPanel = new ScreenPanel(WIDTH, HEIGHT, 
-				new Cannon(WIDTH, HEIGHT), 
-				new Fireball(WIDTH, HEIGHT), 
-				new Fireworks(WIDTH, HEIGHT), 
-				SPEED, DELAY);
-		MainFrame mFrame = new MainFrame(WIDTH, HEIGHT, sPanel);
-		
-		
-		
-		mFrame.setSize(500, 500);
-		mFrame.add(sPanel);
+		mFrame.setSize(WIDTH, HEIGHT);
 		mFrame.setVisible(true);
 		mFrame.setTitle("Particle IO");
 		mFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);

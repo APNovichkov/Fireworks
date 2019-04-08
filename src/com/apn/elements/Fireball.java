@@ -4,29 +4,37 @@ import java.awt.Graphics;
 
 public class Fireball {
 	
+	int screenWidth;
+	int screenHeight;
+	
 	int width;
 	int height;
 	
-	private int currentX;
-	private int currentY;
+	private int x;
+	private int y;
 	
-	public Fireball(int width, int height) {
+	//for now
+	private int time = 0;
+	
+	public Fireball(int screenWidth, int screenHeight, int width, int height) {
+		this.screenWidth = screenWidth;
+		this.screenHeight = screenHeight;
+		
 		this.width = width;
 		this.height = height;
-		
-		currentX = width/2;
-		currentY = height;
 	}
 
 	public int getX() {
-		return currentX;
+		return x;
 	}
 	
 	public int getY() {
-		return currentY;
+		return y;
 	}
 	
-	public void drawMe(Graphics g, int x, int y, int width, int length) {
-		g.fillOval(x, y, width, length);
+	public void setup() {
+		//do we even need it
 	}
+	
+	
 }

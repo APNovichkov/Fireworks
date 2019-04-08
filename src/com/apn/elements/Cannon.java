@@ -4,31 +4,50 @@ import java.awt.Graphics;
 
 public class Cannon {
 
+	private int screenWidth;
+	private int screenHeight;
+	
 	private int width;
 	private int height;
 	
-	private int currentX;
-	private int currentY;
+	private int x;
+	private int y;
 	
-	public Cannon(int width, int height) {
+	//for now
+	private int time = 0;
+	
+	public Cannon(int screenWidth, int screenHeight, int width, int height) {
+		this.screenWidth = screenWidth;
+		this.screenHeight = screenHeight;
+	
 		this.width = width;
 		this.height = height;
-		
-		currentX = width/2;
-		currentY = 0;
 	}
 	
+	
 	public int getX() {
-		return currentX;
+		return x;
 	}
 	
 	public int getY() {
-		return currentY;
+		return y;
 	}
 	
-	public void drawMe(Graphics g, int x, int y, int width, int length) {
-		g.fillRect(x, y, width, length);
+	public int getWidth() {
+		return width;
 	}
+	
+	public int getHeight() {
+		return height;
+	}
+	
+	public void setup() {
+		x = screenWidth/2;
+		y = screenHeight-height;
+	}
+	
+	
+	
 	
 	
 }

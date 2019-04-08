@@ -3,6 +3,7 @@ package com.apn.application;
 import java.awt.Graphics;
 
 import javax.swing.JPanel;
+import javax.xml.crypto.dsig.CanonicalizationMethod;
 
 import com.apn.elements.Cannon;
 import com.apn.elements.Fireball;
@@ -25,7 +26,7 @@ public class ScreenPanel extends JPanel{
 	private int width;
 	private int height;
 	
-	
+	int test_counter = 0;
 	
 	public ScreenPanel(int width, int height, Cannon cannon, Fireball fireball, Fireworks fireworks, int speed, int delay) {
 		this.cannon = cannon;
@@ -33,27 +34,26 @@ public class ScreenPanel extends JPanel{
 		this.fireworks = fireworks;
 		this.speed = speed;
 		this.delay = delay;
+		
+		cannon.setup();
+		
+		//fireball.setup();
+		//fireworks.setup();
 	}
-	
 	
 	
 	@Override
 	public void paint(Graphics g) {
 		super.paint(g);
 	
-		//fireball.drawMe(g, width/2, getYWithGravity(height), 20, 20);
 		
-		System.out.println(width/2);
 		
-		g.fillOval((int)width/2, 250, 20, 20);
 		
+		
+		
+		//draw cannon
+		g.fillOval(cannon.getX(), cannon.getY(), cannon.getWidth(), cannon.getHeight());
 	}
 	
-	private int getXFromAngle(int x) {
-		return (int) (x + (delay/MILLISECONDS_IN_SECOND*speed));
-	}
 	
-	private int getYWithGravity(int y) {
-		return (int) (y - (delay/MILLISECONDS_IN_SECOND)*speed +(delay/MILLISECONDS_IN_SECOND*G_ACCELERATION));
-	}
 }

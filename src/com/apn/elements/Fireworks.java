@@ -4,18 +4,21 @@ import java.awt.Graphics;
 
 public class Fireworks {
 
+	int screenWidth;
+	int screenHeight;
+	
 	int width;
 	int height;
 	
 	private int currentX;
 	private int currentY;
 	
-	public Fireworks(int width, int height) {
+	public Fireworks(int screenWidth, int screenHeight, int width, int height) {
+		this.screenHeight = screenHeight;
+		this.screenWidth = screenWidth;
+		
 		this.width = width;
 		this.height = height;
-		
-		currentX = 0;
-		currentY = 0;
 	}
 	
 	public int getX() {
@@ -26,7 +29,6 @@ public class Fireworks {
 		return currentY;
 	}
 	
-	public void drawMe(Graphics g, int x, int y, int width, int length) {
-		g.fillOval(x, y, width, length);
-	}
+	
+	
 }
