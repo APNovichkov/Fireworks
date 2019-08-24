@@ -13,6 +13,8 @@ public class Cannon {
 	private int x;
 	private int y;
 	
+	final private int Y_STARTING_OFFSET = 22;
+	
 	//for now
 	private int time = 0;
 	
@@ -42,8 +44,15 @@ public class Cannon {
 	}
 	
 	public void setup() {
+		
+		System.out.println("cannon height: " + height);
+		
 		x = screenWidth/2;
-		y = screenHeight-height;
+		y = screenHeight - Y_STARTING_OFFSET - height;
+		
+		System.out.println("cannon y: " + y);
+		
+	
 	}
 	
 	

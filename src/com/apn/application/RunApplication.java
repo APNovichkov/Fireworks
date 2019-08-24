@@ -13,14 +13,15 @@ public class RunApplication {
 	final static int WIDTH=500;
 	final static int HEIGHT=500;
 	
-	final static int CANNON_SIZE = 20;
-	final static int FIREBALL_SIZE = 15;
-	final static int FIREWORKS_SIZE = 10;
+	final static int CANNON_HEIGHT = 50;
+	final static int CANNON_WIDTH = 10;
+	final static int FIREBALL_SIZE = CANNON_WIDTH;
+	final static int FIREWORKS_SIZE = FIREBALL_SIZE/2;
 	
 	
 	public static void main(String[] args) throws InterruptedException {
 		
-		MainFrame mFrame = new MainFrame(WIDTH, HEIGHT, SPEED, DELAY, CANNON_SIZE, FIREBALL_SIZE, FIREWORKS_SIZE);
+		MainFrame mFrame = new MainFrame(WIDTH, HEIGHT, SPEED, DELAY, CANNON_HEIGHT, CANNON_WIDTH, FIREBALL_SIZE, FIREWORKS_SIZE);
 		
 		mFrame.setSize(WIDTH, HEIGHT);
 		mFrame.setVisible(true);

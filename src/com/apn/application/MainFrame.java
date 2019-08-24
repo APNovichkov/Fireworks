@@ -22,17 +22,17 @@ public class MainFrame extends JFrame{
 	
 	ScreenPanel sPanel;
 	
-	public MainFrame(int width, int height, int speed, int delay, int cannonSize, int fireballSize, int fireworksSize) {
+	public MainFrame(int width, int height, int speed, int delay, int cannonHeight, int cannonWidth, int fireballSize, int fireworksSize) {
 		this.width = width;
 		this.height = height;
 		this.speed = speed;
 		this.delay = delay;
 		
-		ScreenPanel sPanel = new ScreenPanel(WIDTH, HEIGHT, 
-				new Cannon(WIDTH, HEIGHT,cannonSize,cannonSize), 
-				new Fireball(WIDTH, HEIGHT, fireballSize, fireballSize), 
-				new Fireworks(WIDTH, HEIGHT, fireworksSize, fireworksSize), 
-				speed, delay);
+		Cannon newCannon = new Cannon(width, height,cannonWidth, cannonHeight);
+		Fireball newFireball = new Fireball(width, height, fireballSize, fireballSize, newCannon);
+		Fireworks newFireworks = new Fireworks(width, height, fireworksSize, fireworksSize);
+		
+		ScreenPanel sPanel = new ScreenPanel(width, height, newCannon, newFireball, newFireworks, speed, delay);
 		
 		this.add(sPanel);
 	}

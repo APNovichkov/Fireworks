@@ -1,5 +1,6 @@
 package com.apn.application;
 
+import java.awt.Color;
 import java.awt.Graphics;
 
 import javax.swing.JPanel;
@@ -34,6 +35,8 @@ public class ScreenPanel extends JPanel{
 		this.fireworks = fireworks;
 		this.speed = speed;
 		this.delay = delay;
+		this.width = width;
+		this.height = height;
 		
 		cannon.setup();
 		
@@ -47,12 +50,35 @@ public class ScreenPanel extends JPanel{
 		super.paint(g);
 	
 		
+		//update fireball position
+		if(fireball.isFired()) {
+			fireball.setup();
+			
+			if(fireball.isInFlight()) {
+				
+				System.out.println("y position of fireball: " + fireball.getY());
+				
+				fireball.setY(fireball.getY() - 1);
+				
+			}
+			
+			fireball.setIsInFlight(true);
+		}
 		
 		
+		
+		//update fireworks position
 		
 		
 		//draw cannon
-		g.fillOval(cannon.getX(), cannon.getY(), cannon.getWidth(), cannon.getHeight());
+		g.setColor(Color.red);
+		g.fillRect(cannon.getX(), cannon.getY(), cannon.getWidth(), cannon.getHeight());
+		
+		//draw fireball
+		g.setColor(Color.blue);
+		g.fillOval(fireball.getX(), fireball.getY(), fireball.getWidth(), fireball.getHeight());
+		
+		//draw fireworks
 	}
 	
 	
